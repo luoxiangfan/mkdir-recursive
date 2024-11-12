@@ -1,6 +1,6 @@
 {
   "name": "@lxf2513/mkdir-recursive",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Recursively creates a directory. Returns undefined or the first directory path created.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:luoxiangfan/mkdir-sync-recursive.git"
+    "url": "git+git@github.com:luoxiangfan/mkdir-recursive.git"
   },
   "keywords": [
     "mkdir",
@@ -43,9 +43,9 @@
   "author": "lxf <infiniment@163.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luoxiangfan/mkdir-sync-recursive/issues"
+    "url": "https://github.com/luoxiangfan/mkdir-recursive/issues"
   },
-  "homepage": "https://github.com/luoxiangfan/mkdir-sync-recursive#readme",
+  "homepage": "https://github.com/luoxiangfan/mkdir-recursive#readme",
   "devDependencies": {
     "@types/node": "^22.9.0",
     "prettier": "^3.3.3",
