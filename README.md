@@ -15,6 +15,8 @@ import { mkdirSyncRecursive } from '@lxf2513/mkdir-recursive'
 
 const path = mkdirSyncRecursive('/path/source')
 
+const paths = mkdirSyncRecursive(['test', 'build/scripts', 'test/html'])
+
 // async
 import { mkdirAsyncRecursive } from '@lxf2513/mkdir-recursive'
 

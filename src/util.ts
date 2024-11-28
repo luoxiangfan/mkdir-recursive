@@ -25,3 +25,5 @@ export function parseFileMode(value: unknown, name: string, def?: number) {
   validateUint32(value, name);
   return value as number;
 }
+
+export const isArray = Array.isArray;

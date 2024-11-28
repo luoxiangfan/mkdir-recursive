@@ -1,22 +1,20 @@
 import fs from 'node:fs';
 import nodePath from 'node:path';
-import { parseFileMode } from './util.js';
+import { isArray, parseFileMode } from './util.js';
 import type {
   MakeDirectoryOptions,
   MakeDirectoryRecursiveOptions
 } from './type.js';
 
-export function mkdirSyncRecursive(
+function mkdirp(
   path: string,
   options?: string | number | MakeDirectoryRecursiveOptions
 ) {
   let mode = 0o777;
   if (typeof options === 'number' || typeof options === 'string') {
     mode = parseFileMode(options, 'mode');
-  } else if (options) {
-    if (options.mode !== undefined) {
-      mode = parseFileMode(options.mode, 'options.mode');
-    }
+  } else if (options?.mode) {
+    mode = parseFileMode(options.mode, 'options.mode');
   }
   const sep = path.includes('/') ? '/' : nodePath.sep;
   const dirs = path.split(sep);
@@ -40,4 +38,20 @@ export function mkdirSyncRecursive(
     return undefined;
   }
   return result.length ? nodePath.resolve(result[0]) : undefined;
+}
+
+export function mkdirSyncRecursive(
+  path: string | string[],
+  options?: string | number | MakeDirectoryRecursiveOptions
+) {
+  let mpath: string | (string | undefined)[] | undefined;
+  if (typeof path === 'string') {
+    mpath = mkdirp(path, options);
+  } else {
+    mpath = [];
+    for (const p of path) {
+      mpath.push(mkdirp(p, options));
+    }
+  }
+  return isArray(mpath) ? (mpath.some((m) => !!m) ? mpath : undefined) : mpath;
 }
