@@ -18,11 +18,12 @@ export function mkdirSyncRecursive(
       mode = parseFileMode(options.mode, 'options.mode');
     }
   }
-  const dirs = path.split('/');
+  const sep = path.includes('/') ? '/' : nodePath.sep;
+  const dirs = path.split(sep);
   let dirPath = '';
   const result: string[] = [];
   for (const dir of dirs) {
-    dirPath += `${dir}/`;
+    dirPath += `${dir}${sep}`;
     mkdir(dirPath, mode);
   }
   function mkdir(path: string, mode: MakeDirectoryOptions['mode']) {
