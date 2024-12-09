@@ -1,2 +1,4 @@
-export { mkdirSyncRecursive } from './sync.js';
-export { mkdirAsyncRecursive } from './promise.js';
+import mkdirSyncRecursive from 'mkdir-sync-recursive';
+import mkdirAsyncRecursive from 'mkdir-async-recursive';
+
+export { mkdirSyncRecursive, mkdirAsyncRecursive };
