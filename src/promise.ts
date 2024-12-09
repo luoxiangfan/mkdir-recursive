@@ -1,5 +1,5 @@
-import fs from 'node:fs';
-import nodePath from 'node:path';
+import { existsSync, mkdirSync } from 'node:fs';
+import { sep, resolve } from 'node:path';
 import { parseFileMode } from './util.js';
 import type {
   MakeDirectoryOptions,
@@ -18,18 +18,18 @@ export async function mkdirAsyncRecursive(
       mode = parseFileMode(options.mode, 'options.mode');
     }
   }
-  const sep = path.includes('/') ? '/' : nodePath.sep;
-  const dirs = path.split(sep);
+  const _sep = path.includes('/') ? '/' : sep;
+  const dirs = path.split(_sep);
   let dirPath = '';
   const result: string[] = [];
   for (const dir of dirs) {
-    dirPath += `${dir}${sep}`;
+    dirPath += `${dir}${_sep}`;
     await mkdir(dirPath, mode);
   }
   async function mkdir(path: string, mode: MakeDirectoryOptions['mode']) {
-    if (!fs.existsSync(dirPath)) {
+    if (!existsSync(dirPath)) {
       try {
-        fs.mkdirSync(path, mode);
+        mkdirSync(path, mode);
         result.push(path);
         return await Promise.resolve(true);
       } catch (error) {
@@ -40,6 +40,6 @@ export async function mkdirAsyncRecursive(
     return await Promise.resolve(undefined);
   }
   return await Promise.resolve(
-    result.length ? nodePath.resolve(result[0]) : undefined
+    result.length ? resolve(result[0]) : undefined
   );
 }
