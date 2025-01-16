@@ -47,16 +47,16 @@
   },
   "homepage": "https://github.com/luoxiangfan/mkdir-recursive#readme",
   "devDependencies": {
-    "@types/node": "^22.10.2",
+    "@types/node": "^22.10.6",
     "prettier": "^3.4.2",
-    "typescript": "^5.7.2",
-    "unbuild": "^3.0.1"
+    "typescript": "^5.7.3",
+    "unbuild": "^3.3.1"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "mkdir-async-recursive": "^1.0.2",
-    "mkdir-sync-recursive": "^1.1.3"
+    "mkdir-async-recursive": "^1.0.3",
+    "mkdir-sync-recursive": "^1.1.4"
   }
 }
