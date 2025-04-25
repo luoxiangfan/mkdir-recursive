@@ -1,6 +1,6 @@
 {
   "name": "@lxf2513/mkdir-recursive",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Recursively creates a directory. Returns undefined or the first directory path created.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -47,16 +47,16 @@
   },
   "homepage": "https://github.com/luoxiangfan/mkdir-recursive#readme",
   "devDependencies": {
-    "@types/node": "^22.13.9",
+    "@types/node": "^22.15.2",
     "prettier": "^3.5.3",
-    "typescript": "^5.8.2",
+    "typescript": "^5.8.3",
     "unbuild": "^3.5.0"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "mkdir-async-recursive": "^1.1.0",
-    "mkdir-sync-recursive": "^1.2.0"
+    "mkdir-async-recursive": "^1.1.1",
+    "mkdir-sync-recursive": "^1.2.1"
   }
 }
