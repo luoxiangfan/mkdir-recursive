@@ -25,9 +25,6 @@ updates:
 
     # 分组配置：将次要版本和补丁版本更新打包
     groups:
-      npm-patch:
+      all-minor-patch:
         patterns: ["*"]
-        update-types: ["patch"]
-      npm-minor:
-        patterns: ["*"]
-        update-types: ["minor"]
+        update-types: ["minor", "patch"]
