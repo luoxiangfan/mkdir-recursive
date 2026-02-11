@@ -25,14 +25,9 @@ updates:
 
     # 分组配置：将次要版本和补丁版本更新打包
     groups:
-      all-minor-patch:
+      npm-patch:
         patterns: ["*"]
-        update-types: ["minor", "patch"]
-
-    # 忽略特定更新（按需修改）
-    ignore:
-      # 忽略某个包的所有更新
-      - dependency-name: "nuxt"
-      # 忽略某个包的主要版本更新
-      - dependency-name: "nuxt"
-        update-types: ["version-update:semver-major"]
+        update-types: ["patch"]
+      npm-minor:
+        patterns: ["*"]
+        update-types: ["minor"]
